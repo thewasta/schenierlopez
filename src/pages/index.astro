@@ -1,16 +1,44 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import AboutSection from "../components/sections/AboutSection.astro";
+import TechStackSection from "../components/sections/TechStackSection.astro";
 
+export const prerender = false;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout
+  title="Schenier Lopez | Backend Developer | APIs & Enterprise Solutions"
+  description="Backend Developer especializado en Laravel, Symfony y Node.js con 7+ años de experiencia desarrollando APIs y sistemas empresariales robustos y escalables."
+>
+  <!-- Hero Section -->
+  <HeroSection />
+
+  <!-- About Section -->
+  <AboutSection />
+
+  <!-- Placeholder for other sections (will be developed next) -->
+  <!-- Tech Stack Section -->
+  <TechStackSection />
+</MainLayout>
+
+<!-- Animations Scripts -->
+<script>
+  import("../scripts/hero-animations.ts").then(
+    ({ default: initHeroAnimations }) => {
+      initHeroAnimations();
+    },
+  );
+
+  import("../scripts/about-animations.ts").then(
+    ({ default: initAboutAnimations }) => {
+      initAboutAnimations();
+    },
+  );
+
+  import("../scripts/tech-stack-animations.ts").then(
+    ({ default: initTechStackAnimations }) => {
+      initTechStackAnimations();
+    },
+  );
+</script>
