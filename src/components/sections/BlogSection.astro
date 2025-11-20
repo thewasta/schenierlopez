@@ -1,0 +1,133 @@
+---
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  date: string;
+  image: string;
+  tags: string[];
+  size?: "small" | "medium" | "large"; // For Bento Grid
+}
+
+const posts: BlogPost[] = [
+  {
+    id: 1,
+    title: "The Future of Headless CMS",
+    excerpt: "Exploring why decoupling your content repository from your presentation layer is the way forward for modern web development.",
+    date: "Oct 12, 2023",
+    image: "https://placehold.co/600x400/1e293b/3b82f6?text=Headless+CMS",
+    tags: ["Architecture", "CMS"],
+    size: "large",
+  },
+  {
+    id: 2,
+    title: "Astro vs Next.js: A Performance Deep Dive",
+    excerpt: "Benchmarking the two most popular frameworks to see which one truly delivers the fastest shipping experience.",
+    date: "Oct 28, 2023",
+    image: "https://placehold.co/600x400/1e293b/10b981?text=Astro+vs+Next",
+    tags: ["Performance", "Frameworks"],
+    size: "medium",
+  },
+  {
+    id: 3,
+    title: "Mastering Tailwind CSS Grid",
+    excerpt: "A comprehensive guide to building complex layouts with utility classes.",
+    date: "Nov 05, 2023",
+    image: "https://placehold.co/600x400/1e293b/f59e0b?text=Tailwind+Grid",
+    tags: ["CSS", "Design"],
+    size: "small",
+  },
+  {
+    id: 4,
+    title: "Building Scalable APIs with NestJS",
+    excerpt: "Best practices for structuring your backend applications for enterprise growth.",
+    date: "Nov 15, 2023",
+    image: "https://placehold.co/600x400/1e293b/8b5cf6?text=NestJS+APIs",
+    tags: ["Backend", "Node.js"],
+    size: "small",
+  },
+  {
+    id: 5,
+    title: "The State of WebAssembly in 2024",
+    excerpt: "How Wasm is changing the landscape of browser-based applications and what it means for you.",
+    date: "Nov 22, 2023",
+    image: "https://placehold.co/600x400/1e293b/ec4899?text=WebAssembly",
+    tags: ["WebAssembly", "Future"],
+    size: "medium",
+  },
+  {
+    id: 6,
+    title: "Optimizing Docker Images",
+    excerpt: "Tips and tricks to reduce your container sizes and speed up deployment pipelines.",
+    date: "Dec 01, 2023",
+    image: "https://placehold.co/600x400/1e293b/06b6d4?text=Docker+Ops",
+    tags: ["DevOps", "Docker"],
+    size: "small",
+  },
+];
+---
+
+<section id="blog" class="relative py-20 bg-slate-950 overflow-hidden">
+  <!-- Background Grid -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center mb-16">
+      <span class="text-blue-500 font-mono text-sm tracking-wider uppercase mb-2 block">Insights</span>
+      <h2 class="text-3xl md:text-4xl font-bold font-heading text-white mb-4">
+        Latest <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Thoughts</span>
+      </h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">
+        Exploring the frontiers of technology, design, and software architecture.
+      </p>
+    </div>
+
+    <!-- BENTO GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+      {posts.map((post, index) => (
+        <article class={`group relative rounded-2xl overflow-hidden bg-slate-900/40 border border-slate-800/50 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 ${
+          index === 0 ? 'md:col-span-2 md:row-span-1' : 
+          index === 3 ? 'md:col-span-2 md:row-span-1' : 
+          'md:col-span-1 md:row-span-1'
+        }`}>
+          <!-- Full Background Image for Bento Style -->
+          <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent z-10"></div>
+            <img 
+              src={post.image} 
+              alt={post.title}
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out opacity-60 group-hover:opacity-80"
+            />
+          </div>
+
+          <!-- Content Overlay -->
+          <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <div class="flex items-center gap-2 mb-3">
+                {post.tags.map(tag => (
+                  <span class="px-2 py-1 text-[10px] font-medium rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-200 backdrop-blur-sm">
+                    {tag}
+                  </span>
+                ))}
+                <span class="text-slate-400 text-xs font-mono ml-auto">{post.date}</span>
+              </div>
+              
+              <h3 class={`font-bold text-white mb-2 group-hover:text-blue-300 transition-colors ${
+                index === 0 || index === 3 ? 'text-2xl md:text-3xl' : 'text-xl'
+              }`}>
+                {post.title}
+              </h3>
+              
+              <p class={`text-slate-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 ${
+                index === 0 || index === 3 ? 'line-clamp-2' : 'line-clamp-3 hidden md:block'
+              }`}>
+                {post.excerpt}
+              </p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
