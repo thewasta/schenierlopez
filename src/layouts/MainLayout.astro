@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 export interface Props {
   title: string;
   description: string;
@@ -19,21 +21,6 @@ const currentImage = image || '/images/og-default.jpg';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
-
-    <!-- Tailwind CSS -->
-    <style is:global>
-      @import 'tailwindcss/base';
-      @import 'tailwindcss/components';
-      @import 'tailwindcss/utilities';
-    </style>
-
-    <!-- Global Styles -->
-    <link rel="stylesheet" href="/styles/global.css" />
-
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
