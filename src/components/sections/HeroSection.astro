@@ -1,0 +1,349 @@
+---
+// Hero Section Component - Corporate Tech Noir Design
+---
+
+<!-- Hero Section -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Layers -->
+  <div class="absolute inset-0">
+    <!-- Primary Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"></div>
+
+    <!-- Tech Pattern Overlay -->
+    <div class="absolute inset-0 opacity-[0.03]">
+      <div class="absolute inset-0 bg-tech-pattern"></div>
+    </div>
+
+    <!-- Floating Code Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <!-- Code Block 1 -->
+      <div class="code-float-element absolute top-20 left-10 text-blue-400/60 font-mono text-sm transform rotate-12">
+        <span class="text-blue-300">const</span> <span class="text-green-300">api</span> = {
+        <div class="ml-4"><span class="text-purple-300">endpoint</span>: <span class="text-yellow-300">'/api/v2'</span>,</div>
+        <div class="ml-4"><span class="text-purple-300">method</span>: <span class="text-yellow-300">'POST'</span></div>
+        }
+      </div>
+
+      <!-- Code Block 2 -->
+      <div class="code-float-element absolute top-40 right-20 text-emerald-400/50 font-mono text-xs transform -rotate-6">
+        <div><span class="text-emerald-300">@Entity</span>()</div>
+        <div><span class="text-emerald-300">class</span> <span class="text-blue-300">User</span> {</div>
+        <div class="ml-2"><span class="text-purple-300">@Id</span>()</div>
+        <div class="ml-4"><span class="text-emerald-300">id</span>: <span class="text-blue-300">number</span>;</div>
+        }
+      </div>
+
+      <!-- Code Block 3 -->
+      <div class="code-float-element absolute bottom-32 left-1/4 text-cyan-400/40 font-mono text-sm transform rotate-3">
+        <div><span class="text-cyan-300">app.use</span>(<span class="text-yellow-300">'/auth'</span>, <span class="text-green-300">authRoutes</span>);</div>
+        <div><span class="text-cyan-300">app.listen</span>(<span class="text-yellow-300">3000</span>);</div>
+      </div>
+
+      <!-- Database Schema -->
+      <div class="code-float-element absolute bottom-20 right-10 text-purple-400/50 font-mono text-xs transform -rotate-12">
+        <div><span class="text-purple-300">CREATE TABLE</span> <span class="text-blue-300">users</span> (</div>
+        <div class="ml-2"><span class="text-purple-300">id</span> <span class="text-green-300">SERIAL</span>,</div>
+        <div class="ml-2"><span class="text-purple-300">email</span> <span class="text-green-300">VARCHAR</span>(255)</div>
+        <div>);</div>
+      </div>
+    </div>
+
+    <!-- Subtle Animated Particles -->
+    <div class="absolute inset-0">
+      <div class="particle-1 absolute w-1 h-1 bg-blue-400/30 rounded-full animate-pulse-slow"></div>
+      <div class="particle-2 absolute w-2 h-2 bg-emerald-400/20 rounded-full animate-pulse-slow"></div>
+      <div class="particle-3 absolute w-1 h-1 bg-purple-400/30 rounded-full animate-pulse-slow"></div>
+      <div class="particle-4 absolute w-1 h-1 bg-cyan-400/20 rounded-full animate-pulse-slow"></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="relative z-10 container mx-auto px-6 text-center">
+    <div class="max-w-5xl mx-auto">
+      <!-- Hero Title with Typing Animation -->
+      <div class="mb-8 animate-fade-in">
+        <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold font-display mb-6">
+          <!-- Line 1 -->
+          <div class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 mb-4">
+            <span class="typing-text">Backend APIs</span>
+          </div>
+          <!-- Line 2 -->
+          <div class="block text-slate-100">
+            <span class="typing-text-delay">That Power Your</span>
+          </div>
+          <!-- Line 3 -->
+          <div class="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-500">
+            <span class="typing-text-delay-2">Business</span>
+          </div>
+        </h1>
+      </div>
+
+      <!-- Subtitle -->
+      <p class="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay">
+        Especializado en <span class="text-blue-400 font-semibold">Laravel</span>, <span class="text-blue-400 font-semibold">Symfony</span> y <span class="text-blue-400 font-semibold">Node.js</span>
+        para crear soluciones empresariales robustas y escalables que resuelven problemas reales de negocio.
+      </p>
+
+      <!-- Key Metrics -->
+      <div class="flex flex-wrap justify-center gap-8 mb-16 animate-slide-up">
+        <!-- Years Experience -->
+        <div class="metric-card bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 text-center hover:border-blue-500/30 transition-all duration-300">
+          <div class="text-4xl font-bold font-display text-blue-400 mb-2">7+</div>
+          <div class="text-slate-400 font-body">Años de Experiencia</div>
+        </div>
+
+        <!-- APIs Built -->
+        <div class="metric-card bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 text-center hover:border-emerald-500/30 transition-all duration-300">
+          <div class="text-4xl font-bold font-display text-emerald-400 mb-2">50+</div>
+          <div class="text-slate-400 font-body">APIs Desarrolladas</div>
+        </div>
+
+        <!-- Enterprise Solutions -->
+        <div class="metric-card bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 text-center hover:border-purple-500/30 transition-all duration-300">
+          <div class="text-4xl font-bold font-display text-purple-400 mb-2">20+</div>
+          <div class="text-slate-400 font-body">Sistemas Empresariales</div>
+        </div>
+      </div>
+
+      <!-- Call to Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-delay-2">
+        <!-- Primary CTA -->
+        <a href="#contact" class="btn-primary group relative overflow-hidden">
+          <span class="relative z-10 flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            Solicitar Cotización
+          </span>
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </a>
+
+        <!-- Secondary CTA -->
+        <a href="#portfolio" class="btn-secondary group">
+          <span class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
+            Ver Portafolio
+          </span>
+        </a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="flex flex-col items-center text-slate-500">
+          <span class="text-sm mb-2 font-body">Deslizar hacia abajo</span>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Styles for This Component -->
+  <style>
+    /* Tech Pattern Background */
+    .bg-tech-pattern {
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+      background-size: 400px 400px, 300px 300px, 350px 350px;
+      background-position: 0 0, 200px 100px, 100px 200px;
+    }
+
+    /* Floating Code Elements Animation */
+    .code-float-element {
+      animation: float-code 20s ease-in-out infinite;
+      opacity: 0;
+      animation-fill-mode: both;
+    }
+
+    .code-float-element:nth-child(1) {
+      animation-delay: 0s;
+      animation-duration: 18s;
+    }
+
+    .code-float-element:nth-child(2) {
+      animation-delay: 2s;
+      animation-duration: 22s;
+    }
+
+    .code-float-element:nth-child(3) {
+      animation-delay: 4s;
+      animation-duration: 20s;
+    }
+
+    .code-float-element:nth-child(4) {
+      animation-delay: 6s;
+      animation-duration: 24s;
+    }
+
+    @keyframes float-code {
+      0%, 100% {
+        opacity: 0;
+        transform: translateY(30px) rotate(0deg);
+      }
+      20%, 80% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-10px) rotate(2deg);
+      }
+    }
+
+    /* Particle Positioning */
+    .particle-1 {
+      top: 15%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .particle-2 {
+      top: 70%;
+      right: 30%;
+      animation-delay: 1s;
+    }
+
+    .particle-3 {
+      top: 40%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .particle-4 {
+      bottom: 25%;
+      left: 10%;
+      animation-delay: 3s;
+    }
+
+    /* Typing Animation Classes */
+    .typing-text {
+      overflow: hidden;
+      border-right: 3px solid rgba(59, 130, 246, 0.8);
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    .typing-text-delay {
+      overflow: hidden;
+      border-right: 3px solid rgba(241, 245, 249, 0.8);
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end) 1s both, blink-caret 0.75s step-end infinite 1s;
+    }
+
+    .typing-text-delay-2 {
+      overflow: hidden;
+      border-right: 3px solid rgba(16, 185, 129, 0.8);
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end) 2s both, blink-caret 0.75s step-end infinite 2s;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: currentColor }
+    }
+
+    /* Animation Classes for Staggered Reveals */
+    .animate-fade-in {
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.5s forwards;
+    }
+
+    .animate-fade-in-delay {
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    .animate-fade-in-delay-2 {
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1.5s forwards;
+    }
+
+    .animate-slide-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 0.8s ease-out 1.2s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Metric Cards Hover Effect */
+    .metric-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .metric-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Responsive Typography */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .typing-text,
+      .typing-text-delay,
+      .typing-text-delay-2 {
+        font-size: clamp(2rem, 7vw, 3rem);
+      }
+
+      .code-float-element {
+        font-size: 0.6rem !important;
+        opacity: 0.3 !important;
+      }
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      .typing-text,
+      .typing-text-delay,
+      .typing-text-delay-2 {
+        border-right: none;
+        animation: none;
+      }
+
+      .code-float-element {
+        animation: none;
+        opacity: 0.2;
+      }
+
+      .animate-fade-in,
+      .animate-fade-in-delay,
+      .animate-fade-in-delay-2,
+      .animate-slide-up {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</section>
