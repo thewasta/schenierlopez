@@ -2,7 +2,58 @@
 // Tech Stack Section - Corporate Tech Noir Design
 // Horizontal Infinite Scroll Implementation
 
-const skills = [
+// Import icon components
+import LaravelIcon from '../icons/LaravelIcon.astro';
+import SymfonyIcon from '../icons/SymfonyIcon.astro';
+import NestJSIcon from '../icons/NestJSIcon.astro';
+import ExpressIcon from '../icons/ExpressIcon.astro';
+import PhpIcon from '../icons/PhpIcon.astro';
+import MysqlIcon from '../icons/MysqlIcon.astro';
+import AnsibleIcon from '../icons/AnsibleIcon.astro';
+import KibanaIcon from '../icons/KibanaIcon.astro';
+
+const iconComponents = {
+  laravel: LaravelIcon,
+  symfony: SymfonyIcon,
+  nestjs: NestJSIcon,
+  express: ExpressIcon,
+  php: PhpIcon,
+  mysql: MysqlIcon,
+  ansible: AnsibleIcon,
+  kibana: KibanaIcon,
+};
+
+// Keep inline SVGs for icons without dedicated files
+const inlineIcons = {
+  docker: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><path d="M22 12.54c-1.804 -.345 -2.701 -1.08 -3.523 -2.94c-.487 .696 -1.102 1.568 -.92 2.4c.028 .238 -.32 1 -.557 1h-14c0 5.208 3.164 7 6.196 7c4.124 .022 7.828 -1.376 9.854 -5c1.146 -.101 2.296 -1.505 2.95 -2.46z" /><path d="M5 10h3v3h-3z" /><path d="M8 10h3v3h-3z" /><path d="M11 10h3v3h-3z" /><path d="M8 7h3v3h-3z" /><path d="M11 7h3v3h-3z" /><path d="M11 4h3v3h-3z" /><path d="M4.571 18c1.5 0 2.047 -.074 2.958 -.78" /><path d="M10 16l0 .01" /></svg>`,
+  redis: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><path d="M4 6c0 1.657 3.582 3 8 3s8 -1.343 8 -3s-3.582 -3 -8 -3s-8 1.343 -8 3" /><path d="M4 6v6c0 1.657 3.582 3 8 3s8 -1.343 8 -3v-6" /><path d="M4 12v6c0 1.657 3.582 3 8 3s8 -1.343 8 -3v-6" /></svg>`,
+  mongo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><path d="M12 3v19" /><path d="M6 8.5l6 -5.5l6 5.5v9l-6 5.5l-6 -5.5z" /></svg>`,
+  git: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><circle cx="16" cy="12" r="2" /><circle cx="10" cy="8" r="2" /><circle cx="10" cy="16" r="2" /><path d="M10 8v8" /><path d="M16 12l-4 -4" /></svg>`,
+  elasticsearch: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><path d="M14 2a5 5 0 0 1 5 5c0 .712 -.232 1.387 -.5 2c1.894 .042 3.5 1.595 3.5 3.5c0 1.869 -1.656 3.4 -3.5 3.5c.333 .625 .5 1.125 .5 1.5a2.5 2.5 0 0 1 -2.5 2.5c-.787 0 -1.542 -.432 -2 -1c-.786 1.73 -2.476 3 -4.5 3a5 5 0 0 1 -4.583 -7a3.5 3.5 0 0 1 -.11 -6.992l.195 0a2.5 2.5 0 0 1 2 -4c.787 0 1.542 .432 2 1c.786 -1.73 2.476 -3 4.5 -3z" /><path d="M8.5 9l-3 -1" /><path d="M9.5 5l-1 4l1 2l5 2l4 -4" /><path d="M18.499 16l-3 -.5l-1 -2.5" /><path d="M14.5 19l1 -3.5" /><path d="M5.417 15l4.083 -4" /></svg>`,
+  microservices: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><rect x="3" y="4" width="18" height="4" rx="2" /><rect x="3" y="12" width="18" height="4" rx="2" /><rect x="3" y="20" width="18" height="4" rx="2" /></svg>`,
+  code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><path d="M7 8l-4 4l4 4" /><path d="M17 8l4 4l-4 4" /><path d="M14 4l-4 16" /></svg>`,
+  hexagonal: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" /></svg>`,
+  event: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" /></svg>`,
+  cicd: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" /><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" /></svg>`,
+  ddd: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><path d="M8 8h8v8h-8z" /><path d="M4 4h16v16h-16z" /></svg>`,
+  rundeck: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M2.146 12L0 14.146l4.293 4.293L8.586 14.146 6.44 12 8.586 9.854 4.293 5.561 0 9.854 2.146 12zM21.854 12l2.146 2.146-4.293 4.293-4.293-4.293L17.56 12l-2.146-2.146 4.293-4.293 4.293 4.293L21.854 12zM9.99 12l-2.147 2.146 4.293 4.293L16.436 14.146 14.29 12l2.146-2.146-4.293-4.293-4.293 4.293L9.99 12z" /></svg>`,
+};
+
+// Combined icons object
+const icons = { ...iconComponents, ...inlineIcons };
+
+type IconName = keyof typeof icons;
+
+interface Skill {
+  name: string;
+  icon: IconName;
+  color: string;
+  bg: string;
+  border: string;
+  description: string;
+}
+
+const skills: Skill[][] = [
   // Row 1: Backend Frameworks & Languages (Scrolls Left)
   [
     {
@@ -44,14 +95,6 @@ const skills = [
       bg: 'bg-indigo-400/10',
       border: 'group-hover:border-indigo-400/50',
       description: 'Dominio profundo del lenguaje, PHP 8+, JIT y programación asíncrona.'
-    },
-    {
-      name: 'Node.js',
-      icon: 'node',
-      color: 'text-green-500',
-      bg: 'bg-green-500/10',
-      border: 'group-hover:border-green-500/50',
-      description: 'Runtime de JavaScript para backend escalable y event-driven.'
     }
   ],
   // Row 2: Data, DevOps & Cloud (Scrolls Right)
@@ -65,28 +108,12 @@ const skills = [
       description: 'Optimización de queries, esquemas normalizados y alta disponibilidad.'
     },
     {
-      name: 'PostgreSQL',
-      icon: 'postgres',
-      color: 'text-blue-400',
-      bg: 'bg-blue-400/10',
-      border: 'group-hover:border-blue-400/50',
-      description: 'Bases de datos relacionales avanzadas, JSONB y extensiones.'
-    },
-    {
       name: 'Docker',
       icon: 'docker',
       color: 'text-blue-600',
       bg: 'bg-blue-600/10',
       border: 'group-hover:border-blue-600/50',
       description: 'Containerización y orquestación de entornos de desarrollo/prod.'
-    },
-    {
-      name: 'AWS',
-      icon: 'aws',
-      color: 'text-orange-500',
-      bg: 'bg-orange-500/10',
-      border: 'group-hover:border-orange-500/50',
-      description: 'Infraestructura cloud: EC2, S3, RDS, Lambda y VPC.'
     },
     {
       name: 'Redis',
@@ -103,6 +130,30 @@ const skills = [
       bg: 'bg-green-500/10',
       border: 'group-hover:border-green-500/50',
       description: 'Base de datos NoSQL para datos flexibles y gran volumen.'
+    },
+    {
+      name: 'Git',
+      icon: 'git',
+      color: 'text-green-500',
+      bg: 'bg-green-500/10',
+      border: 'group-hover:border-green-500/50',
+      description: 'Control de versiones y colaboración en proyectos.'
+    },
+    {
+      name: 'ElasticSearch',
+      icon: 'elasticsearch',
+      color: 'text-blue-500',
+      bg: 'bg-blue-500/10',
+      border: 'group-hover:border-blue-500/50',
+      description: 'Búsqueda en tiempo real y análisis de datos.'
+    },
+    {
+      name: 'Kibana',
+      icon: 'kibana',
+      color: 'text-blue-500',
+      bg: 'bg-blue-500/10',
+      border: 'group-hover:border-blue-500/50',
+      description: 'Visualización de datos y análisis de datos.'
     }
   ],
   // Row 3: Architecture & Concepts (Scrolls Left)
@@ -124,7 +175,7 @@ const skills = [
       description: 'Código legible, mantenible y testeable. Principios SOLID.'
     },
     {
-      name: 'Hexagonal Arch',
+      name: 'Arquitectura Hexagonal',
       icon: 'hexagonal',
       color: 'text-amber-500',
       bg: 'bg-amber-500/10',
@@ -148,12 +199,28 @@ const skills = [
       description: 'Pipelines automatizados para integración y despliegue continuo.'
     },
     {
-      name: 'TDD',
-      icon: 'test',
-      color: 'text-lime-400',
-      bg: 'bg-lime-400/10',
-      border: 'group-hover:border-lime-400/50',
-      description: 'Desarrollo guiado por pruebas para garantizar robustez.'
+      name: 'DDD',
+      icon: 'ddd',
+      color: 'text-blue-400',
+      bg: 'bg-blue-400/10',
+      border: 'group-hover:border-blue-400/50',
+      description: 'Desarrollo guiado por dominio para garantizar robustez.'
+    },
+    {
+      name: 'Rundeck',
+      icon: 'rundeck',
+      color: 'text-blue-400',
+      bg: 'bg-blue-400/10',
+      border: 'group-hover:border-blue-400/50',
+      description: 'Orquestación de tareas y pipelines de automatización.'
+    },
+    {
+      name: 'Ansible',
+      icon: 'ansible',
+      color: 'text-blue-400',
+      bg: 'bg-blue-400/10',
+      border: 'group-hover:border-blue-400/50',
+      description: 'Orquestación de tareas y pipelines de automatización.'
     }
   ]
 ];
@@ -197,25 +264,12 @@ const skills = [
                   <!-- Default State: Icon + Name -->
                   <div class="flex items-center space-x-4">
                     <div class={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${skill.bg}`}>
-                      <!-- Icons (Simplified SVGs) -->
-                      {skill.icon === 'laravel' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg>}
-                      {skill.icon === 'symfony' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'nestjs' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg>}
-                      {skill.icon === 'express' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'php' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'node' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'mysql' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'postgres' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'docker' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'aws' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'redis' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'mongo' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'microservices' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'code' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>}
-                      {skill.icon === 'hexagonal' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5zm0 2.2L5.2 8.4v7.2L12 19.8l6.8-4.2V8.4L12 4.2z"/></svg>}
-                      {skill.icon === 'event' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'cicd' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
-                      {skill.icon === 'test' && <svg class={`w-6 h-6 ${skill.color}`} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>}
+                      <!-- Icons (Components or SVGs) -->
+                      {
+                        typeof icons[skill.icon] === 'string'
+                          ? <div class={`w-6 h-6 ${skill.color}`} set:html={icons[skill.icon]} />
+                          : <icons[skill.icon] class={`w-6 h-6 ${skill.color}`} />
+                      }
                     </div>
                     <h4 class="text-lg font-semibold font-display text-slate-200 group-hover:text-white transition-colors">
                       {skill.name}
