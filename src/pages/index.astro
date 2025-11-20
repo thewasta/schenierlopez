@@ -3,6 +3,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 import HeroSection from "../components/sections/HeroSection.astro";
 import AboutSection from "../components/sections/AboutSection.astro";
 import TechStackSection from "../components/sections/TechStackSection.astro";
+import ServicesSection from "../components/sections/ServicesSection.astro";
+import PortfolioSection from "../components/sections/PortfolioSection.astro";
+import BlogSection from "../components/sections/BlogSection.astro";
+import ContactSection from "../components/sections/ContactSection.astro";
 
 export const prerender = false;
 ---
@@ -17,9 +21,20 @@ export const prerender = false;
   <!-- About Section -->
   <AboutSection />
 
-  <!-- Placeholder for other sections (will be developed next) -->
   <!-- Tech Stack Section -->
   <TechStackSection />
+
+  <!-- Services Section -->
+  <ServicesSection />
+
+  <!-- Portfolio Section -->
+  <PortfolioSection />
+
+  <!-- Blog Section -->
+  <BlogSection />
+
+  <!-- Contact Section -->
+  <ContactSection />
 </MainLayout>
 
 <!-- Animations Scripts -->
@@ -39,6 +54,18 @@ export const prerender = false;
   import("../scripts/tech-stack-animations.ts").then(
     ({ default: initTechStackAnimations }) => {
       initTechStackAnimations();
+    },
+  );
+
+  import("../scripts/portfolio-animations.ts").then(
+    ({ default: initPortfolioAnimations }) => {
+      initPortfolioAnimations();
+    },
+  );
+
+  import("../scripts/contact-animations.ts").then(
+    ({ default: initContactAnimations }) => {
+      initContactAnimations();
     },
   );
 </script>
