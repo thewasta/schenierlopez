@@ -1,8 +1,6 @@
-// GSAP Hero Animations - Corporate Tech Noir Design
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 export class HeroAnimations {
@@ -15,8 +13,7 @@ export class HeroAnimations {
     this.codeElements = document.querySelectorAll('.code-float-element');
     this.metricsCards = document.querySelectorAll('.metric-card');
 
-    // Initialize animations when DOM is ready
-    if (document.readyState === 'loading') {
+        if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => this.init());
     } else {
       this.init();
@@ -34,8 +31,7 @@ export class HeroAnimations {
     this.initParticleAnimation();
   }
 
-  // Floating Code Elements Animation
-  private initFloatingCodeElements(): void {
+    private initFloatingCodeElements(): void {
     if (!this.codeElements) return;
 
     this.codeElements.forEach((element, index) => {
@@ -45,8 +41,7 @@ export class HeroAnimations {
         delay: index * 0.5
       });
 
-      // Random floating animation
-      tl.to(element, {
+            tl.to(element, {
         y: 'random(-20, 20)',
         x: 'random(-10, 10)',
         rotation: 'random(-5, 5)',
@@ -54,8 +49,7 @@ export class HeroAnimations {
         ease: 'power1.inOut'
       });
 
-      // Opacity pulsing
-      gsap.to(element, {
+            gsap.to(element, {
         opacity: 'random(0.3, 0.7)',
         duration: 'random(3, 6)',
         repeat: -1,
@@ -66,8 +60,7 @@ export class HeroAnimations {
     });
   }
 
-  // Metrics Cards Entrance Animation
-  private initMetricsCardsAnimation(): void {
+    private initMetricsCardsAnimation(): void {
     if (!this.metricsCards) return;
 
     gsap.fromTo(this.metricsCards,
@@ -92,8 +85,7 @@ export class HeroAnimations {
       }
     );
 
-    // Continuous number animation
-    this.metricsCards.forEach((card) => {
+        this.metricsCards.forEach((card) => {
       const numberElement = card.querySelector('.text-4xl');
       if (numberElement) {
         const text = numberElement.textContent || '0';
@@ -113,12 +105,10 @@ export class HeroAnimations {
     });
   }
 
-  // Parallax Effects on Scroll
-  private initParallaxEffects(): void {
+    private initParallaxEffects(): void {
     if (!this.heroSection) return;
 
-    // Background parallax
-    gsap.to('.bg-tech-pattern', {
+        gsap.to('.bg-tech-pattern', {
       yPercent: -50,
       ease: 'none',
       scrollTrigger: {
@@ -129,8 +119,7 @@ export class HeroAnimations {
       }
     });
 
-    // Code elements parallax
-    this.codeElements?.forEach((element, index) => {
+        this.codeElements?.forEach((element, index) => {
       gsap.to(element, {
         yPercent: -30 - (index * 10),
         ease: 'none',
@@ -144,28 +133,24 @@ export class HeroAnimations {
     });
   }
 
-  // Mouse Interaction Effects
-  private initMouseInteraction(): void {
+    private initMouseInteraction(): void {
     if (!this.heroSection) return;
 
     this.heroSection.addEventListener('mousemove', (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
 
-      // Calculate mouse position relative to center
-      const x = (clientX - innerWidth / 2) / innerWidth;
+            const x = (clientX - innerWidth / 2) / innerWidth;
       const y = (clientY - innerHeight / 2) / innerHeight;
 
-      // Subtle parallax on mouse move
-      gsap.to('.code-float-element', {
+            gsap.to('.code-float-element', {
         x: x * 20,
         y: y * 20,
         duration: 0.5,
         ease: 'power2.out'
       });
 
-      // Card tilt effect
-      this.metricsCards?.forEach((card) => {
+            this.metricsCards?.forEach((card) => {
         const rect = card.getBoundingClientRect();
         const cardX = (clientX - rect.left - rect.width / 2) / rect.width;
         const cardY = (clientY - rect.top - rect.height / 2) / rect.height;
@@ -180,8 +165,7 @@ export class HeroAnimations {
       });
     });
 
-    // Reset on mouse leave
-    this.heroSection.addEventListener('mouseleave', () => {
+        this.heroSection.addEventListener('mouseleave', () => {
       gsap.to('.code-float-element', {
         x: 0,
         y: 0,
@@ -198,8 +182,7 @@ export class HeroAnimations {
     });
   }
 
-  // Enhanced Typewriter Effect
-  private initTypewriterEffect(): void {
+    private initTypewriterEffect(): void {
     const typingElements = document.querySelectorAll('.typing-text, .typing-text-delay, .typing-text-delay-2');
 
     typingElements.forEach((element, index) => {
@@ -218,8 +201,7 @@ export class HeroAnimations {
           delay: delay / 1000,
           ease: 'power2.out',
           onComplete: () => {
-            // Cursor blinking after typing completes
-            gsap.to(element, {
+                        gsap.to(element, {
               borderOpacity: 0,
               duration: 0.5,
               repeat: -1,
@@ -231,8 +213,7 @@ export class HeroAnimations {
     });
   }
 
-  // Particle Background Animation
-  private initParticleAnimation(): void {
+    private initParticleAnimation(): void {
     const particles = document.querySelectorAll('[class^="particle-"]');
 
     particles.forEach((particle, index) => {
@@ -259,8 +240,7 @@ export class HeroAnimations {
     });
   }
 
-  // Performance optimization - Pause animations when not visible
-  private initIntersectionObserver(): void {
+    private initIntersectionObserver(): void {
     if (!this.heroSection) return;
 
     const observer = new IntersectionObserver(
@@ -279,15 +259,12 @@ export class HeroAnimations {
     observer.observe(this.heroSection);
   }
 
-  // Cleanup method
-  public destroy(): void {
-    // Kill all GSAP animations
-    gsap.killTweensOf('*');
+    public destroy(): void {
+        gsap.killTweensOf('*');
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   }
 }
 
-// Initialize on module load
 export default function initHeroAnimations(): HeroAnimations {
   return new HeroAnimations();
 }

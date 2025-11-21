@@ -1,8 +1,6 @@
-// GSAP About Section Animations - Corporate Tech Noir Design
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 export class AboutAnimations {
@@ -17,8 +15,7 @@ export class AboutAnimations {
     this.skillProgressBars = document.querySelectorAll('.skill-progress');
     this.skillCategories = document.querySelectorAll('.skill-category');
 
-    // Initialize animations when DOM is ready
-    if (document.readyState === 'loading') {
+        if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => this.init());
     } else {
       this.init();
@@ -35,8 +32,7 @@ export class AboutAnimations {
     this.initInteractiveElements();
   }
 
-  // Animated Counters for Statistics
-  private initCounters(): void {
+    private initCounters(): void {
     if (!this.statCards) return;
 
     this.statCards.forEach((card) => {
@@ -392,7 +388,6 @@ export class AboutAnimations {
   }
 }
 
-// Initialize on module load
 export default function initAboutAnimations(): AboutAnimations {
   return new AboutAnimations();
 }

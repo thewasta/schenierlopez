@@ -21,19 +21,16 @@ const currentImage = image || "/images/og-default.jpg";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <!-- SEO Meta Tags -->
-    <title>{title}</title>
+        <title>{title}</title>
     <meta name="title" content={title} />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content={type} />
+        <meta property="og:type" content={type} />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(currentImage, siteUrl).href} />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={siteUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
@@ -42,8 +39,7 @@ const currentImage = image || "/images/og-default.jpg";
       content={new URL(currentImage, siteUrl).href}
     />
 
-    <!-- Additional SEO -->
-    <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow" />
     <meta name="language" content="Spanish" />
     <meta name="author" content="Schenier Lopez" />
   </head>
@@ -51,8 +47,7 @@ const currentImage = image || "/images/og-default.jpg";
   <body
     class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-500/30 selection:text-blue-200"
   >
-    <!-- Background Pattern -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="fixed inset-0 z-0 pointer-events-none">
       <div
         class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
       >
@@ -71,16 +66,14 @@ const currentImage = image || "/images/og-default.jpg";
       </div>
     </div>
 
-    <!-- Navigation -->
-    <header
+        <header
       id="main-header"
       class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent"
     >
       <nav
         class="container mx-auto px-6 h-20 flex items-center justify-between"
       >
-        <!-- Logo/Name -->
-        <a href="#" class="group flex items-center space-x-3 z-50 relative">
+                <a href="#" class="group flex items-center space-x-3 z-50 relative">
           <div
             class="relative h-10 w-10 overflow-hidden rounded-xl bg-slate-900 border border-slate-700 group-hover:border-blue-500/50 transition-colors duration-300 flex items-center justify-center"
           >
@@ -105,8 +98,7 @@ const currentImage = image || "/images/og-default.jpg";
           </div>
         </a>
 
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-1">
+                <div class="hidden md:flex items-center space-x-1">
           <a
             href="#about"
             class="nav-link px-4 py-2 text-sm font-medium text-slate-400 hover:text-blue-400 transition-colors duration-200 relative group"
@@ -167,8 +159,7 @@ const currentImage = image || "/images/og-default.jpg";
           </div>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <button
+                <button
           id="mobile-menu-btn"
           class="md:hidden relative z-50 p-2 text-slate-300 hover:text-blue-400 transition-colors duration-200 focus:outline-none"
         >
@@ -186,8 +177,7 @@ const currentImage = image || "/images/og-default.jpg";
         </button>
       </nav>
 
-      <!-- Mobile Menu Overlay -->
-      <div
+            <div
         id="mobile-menu"
         class="fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex items-center justify-center"
       >
@@ -227,17 +217,14 @@ const currentImage = image || "/images/og-default.jpg";
       </div>
     </header>
 
-    <!-- Main Content Slot -->
-    <main class="relative z-10 pt-20 min-h-screen">
+        <main class="relative z-10 pt-20 min-h-screen">
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer
+        <footer
       class="relative z-10 border-t border-slate-800/50 bg-slate-950 pt-20 pb-10 overflow-hidden"
     >
-      <!-- Footer Background Glow -->
-      <div
+            <div
         class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
       >
       </div>
@@ -248,8 +235,7 @@ const currentImage = image || "/images/og-default.jpg";
 
       <div class="container mx-auto px-6">
         <div class="grid md:grid-cols-12 gap-12 mb-16">
-          <!-- Brand Column -->
-          <div class="md:col-span-5 space-y-6">
+                    <div class="md:col-span-5 space-y-6">
             <div class="flex items-center space-x-3">
               <div
                 class="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20"
@@ -305,8 +291,7 @@ const currentImage = image || "/images/og-default.jpg";
             </div>
           </div>
 
-          <!-- Quick Links -->
-          <div class="md:col-span-2 md:col-start-7">
+                    <div class="md:col-span-2 md:col-start-7">
             <h3 class="font-display font-semibold text-white mb-6">Enlaces</h3>
             <ul class="space-y-3">
               <li>
@@ -336,8 +321,7 @@ const currentImage = image || "/images/og-default.jpg";
             </ul>
           </div>
 
-          <!-- Services -->
-          <div class="md:col-span-2">
+                    <div class="md:col-span-2">
             <h3 class="font-display font-semibold text-white mb-6">
               Expertise
             </h3>
@@ -369,8 +353,7 @@ const currentImage = image || "/images/og-default.jpg";
             </ul>
           </div>
 
-          <!-- Contact -->
-          <div class="md:col-span-2">
+                    <div class="md:col-span-2">
             <h3 class="font-display font-semibold text-white mb-6">Contacto</h3>
             <ul class="space-y-3">
               <li>
@@ -410,17 +393,14 @@ const currentImage = image || "/images/og-default.jpg";
       </div>
     </footer>
 
-    <!-- GSAP for animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
     ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
     ></script>
 
-    <!-- UI Scripts -->
-    <script>
-      // Mobile Menu Logic
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        <script>
+            const mobileMenuBtn = document.getElementById("mobile-menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
       const mobileLinks = document.querySelectorAll(".mobile-link");
       const header = document.getElementById("main-header");
@@ -431,8 +411,7 @@ const currentImage = image || "/images/og-default.jpg";
         if (isMenuOpen) {
           mobileMenu?.classList.remove("translate-x-full");
           document.body.style.overflow = "hidden";
-          // Animate hamburger to X
-          mobileMenuBtn?.children[0].children[0].classList.add(
+                    mobileMenuBtn?.children[0].children[0].classList.add(
             "rotate-45",
             "translate-y-2",
           );
@@ -444,8 +423,7 @@ const currentImage = image || "/images/og-default.jpg";
         } else {
           mobileMenu?.classList.add("translate-x-full");
           document.body.style.overflow = "";
-          // Animate X to hamburger
-          mobileMenuBtn?.children[0].children[0].classList.remove(
+                    mobileMenuBtn?.children[0].children[0].classList.remove(
             "rotate-45",
             "translate-y-2",
           );
@@ -465,8 +443,7 @@ const currentImage = image || "/images/og-default.jpg";
         });
       });
 
-      // Scroll Effect
-      window.addEventListener("scroll", () => {
+            window.addEventListener("scroll", () => {
         if (window.scrollY > 20) {
           header?.classList.add(
             "bg-slate-950/80",
