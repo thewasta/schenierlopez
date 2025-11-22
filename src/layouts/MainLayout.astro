@@ -21,16 +21,16 @@ const currentImage = image || "/images/og-default.jpg";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
+    <title>{title}</title>
     <meta name="title" content={title} />
 
-        <meta property="og:type" content={type} />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(currentImage, siteUrl).href} />
 
-        <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={siteUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
@@ -39,7 +39,7 @@ const currentImage = image || "/images/og-default.jpg";
       content={new URL(currentImage, siteUrl).href}
     />
 
-        <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow" />
     <meta name="language" content="Spanish" />
     <meta name="author" content="Schenier Lopez" />
   </head>
@@ -47,7 +47,7 @@ const currentImage = image || "/images/og-default.jpg";
   <body
     class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-500/30 selection:text-blue-200"
   >
-        <div class="fixed inset-0 z-0 pointer-events-none">
+    <div class="fixed inset-0 z-0 pointer-events-none">
       <div
         class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
       >
@@ -66,14 +66,14 @@ const currentImage = image || "/images/og-default.jpg";
       </div>
     </div>
 
-        <header
+    <header
       id="main-header"
       class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent"
     >
       <nav
         class="container mx-auto px-6 h-20 flex items-center justify-between"
       >
-                <a href="#" class="group flex items-center space-x-3 z-50 relative">
+        <a href="/" class="group flex items-center space-x-3 z-50 relative">
           <div
             class="relative h-10 w-10 overflow-hidden rounded-xl bg-slate-900 border border-slate-700 group-hover:border-blue-500/50 transition-colors duration-300 flex items-center justify-center"
           >
@@ -98,7 +98,7 @@ const currentImage = image || "/images/og-default.jpg";
           </div>
         </a>
 
-                <div class="hidden md:flex items-center space-x-1">
+        <div class="hidden md:flex items-center space-x-1">
           <a
             href="#about"
             class="nav-link px-4 py-2 text-sm font-medium text-slate-400 hover:text-blue-400 transition-colors duration-200 relative group"
@@ -139,7 +139,7 @@ const currentImage = image || "/images/og-default.jpg";
             >
             </div>
           </a>
-            <a
+          <a
             href="#blog"
             class="nav-link px-4 py-2 text-sm font-medium text-slate-400 hover:text-blue-400 transition-colors duration-200 relative group"
           >
@@ -159,7 +159,7 @@ const currentImage = image || "/images/og-default.jpg";
           </div>
         </div>
 
-                <button
+        <button
           id="mobile-menu-btn"
           class="md:hidden relative z-50 p-2 text-slate-300 hover:text-blue-400 transition-colors duration-200 focus:outline-none"
         >
@@ -177,7 +177,7 @@ const currentImage = image || "/images/og-default.jpg";
         </button>
       </nav>
 
-            <div
+      <div
         id="mobile-menu"
         class="fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex items-center justify-center"
       >
@@ -202,7 +202,7 @@ const currentImage = image || "/images/og-default.jpg";
             class="mobile-link text-2xl font-medium text-slate-300 hover:text-blue-400 transition-colors duration-200"
             >Servicios</a
           >
-            <a
+          <a
             href="#blog"
             class="mobile-link text-2xl font-medium text-slate-300 hover:text-blue-400 transition-colors duration-200"
             >Blog</a
@@ -217,14 +217,14 @@ const currentImage = image || "/images/og-default.jpg";
       </div>
     </header>
 
-        <main class="relative z-10 pt-20 min-h-screen">
+    <main class="relative z-10 pt-20 min-h-screen">
       <slot />
     </main>
 
-        <footer
+    <footer
       class="relative z-10 border-t border-slate-800/50 bg-slate-950 pt-20 pb-10 overflow-hidden"
     >
-            <div
+      <div
         class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-linear-to-r from-transparent via-blue-500/50 to-transparent"
       >
       </div>
@@ -235,7 +235,7 @@ const currentImage = image || "/images/og-default.jpg";
 
       <div class="container mx-auto px-6">
         <div class="grid md:grid-cols-12 gap-12 mb-16">
-                    <div class="md:col-span-5 space-y-6">
+          <div class="md:col-span-5 space-y-6">
             <div class="flex items-center space-x-3">
               <div
                 class="h-10 w-10 rounded-xl bg-linear-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20"
@@ -248,8 +248,9 @@ const currentImage = image || "/images/og-default.jpg";
               >
             </div>
             <p class="text-slate-400 leading-relaxed max-w-md">
-              Desarrollador Backend especializado en Symfony y Laravel con 6 años de experiencia.
-              Construyo APIs RESTful escalables aplicando Clean Architecture y principios SOLID.
+              Desarrollador Backend especializado en Symfony y Laravel con 6
+              años de experiencia. Construyo APIs RESTful escalables aplicando
+              Clean Architecture y principios SOLID.
             </p>
             <div class="flex items-center space-x-4 pt-2">
               <a
@@ -291,37 +292,41 @@ const currentImage = image || "/images/og-default.jpg";
             </div>
           </div>
 
-                    <div class="md:col-span-2 md:col-start-7">
+          <div class="md:col-span-2 md:col-start-7">
             <h3 class="font-display font-semibold text-white mb-6">Enlaces</h3>
             <ul class="space-y-3">
               <li>
                 <a
                   href="#about"
                   class="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm"
-                  >Sobre Mí</a>
+                  >Sobre Mí</a
+                >
               </li>
               <li>
                 <a
                   href="#portfolio"
                   class="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm"
-                  >Portafolio</a>
+                  >Portafolio</a
+                >
               </li>
               <li>
                 <a
                   href="#services"
                   class="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm"
-                  >Servicios</a>
+                  >Servicios</a
+                >
               </li>
               <li>
                 <a
                   href="#blog"
                   class="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm"
-                  >Blog</a>
+                  >Blog</a
+                >
               </li>
             </ul>
           </div>
 
-                    <div class="md:col-span-2">
+          <div class="md:col-span-2">
             <h3 class="font-display font-semibold text-white mb-6">
               Expertise
             </h3>
@@ -330,41 +335,47 @@ const currentImage = image || "/images/og-default.jpg";
                 <a
                   href="#services"
                   class="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm"
-                  >Symfony & Doctrine</a>
+                  >Symfony & Doctrine</a
+                >
               </li>
               <li>
                 <a
                   href="#services"
                   class="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm"
-                  >Laravel & NodeJS</a>
+                  >Laravel & NodeJS</a
+                >
               </li>
               <li>
                 <a
                   href="#services"
                   class="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm"
-                  >Clean Architecture</a>
+                  >Clean Architecture</a
+                >
               </li>
               <li>
                 <a
                   href="#services"
                   class="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm"
-                  >TDD & Testing</a>
+                  >TDD & Testing</a
+                >
               </li>
             </ul>
           </div>
 
-                    <div class="md:col-span-2">
+          <div class="md:col-span-2">
             <h3 class="font-display font-semibold text-white mb-6">Contacto</h3>
             <ul class="space-y-3">
               <li>
                 <a
-                  href="mailto:contact@schenier.com"
+                  href="mailto:contact@schenierlopez.es"
                   class="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm"
-                  >contact@schenier.com</a>
+                  >contact@schenierlopez.es</a
+                >
               </li>
               <li>
                 <span class="text-slate-500 text-sm"
-                  >Disponible para proyectos freelance</span>
+                  >Disponible para proyectos freelance</span
+                >
               </li>
             </ul>
           </div>
@@ -377,30 +388,16 @@ const currentImage = image || "/images/og-default.jpg";
             &copy; {new Date().getFullYear()} Schenier Lopez. Todos los derechos
             reservados.
           </p>
-          <div class="flex items-center space-x-6 text-sm text-slate-500">
-            <a
-              href="#"
-              class="hover:text-slate-300 transition-colors duration-200"
-              >Privacidad</a
-            >
-            <a
-              href="#"
-              class="hover:text-slate-300 transition-colors duration-200"
-              >Términos</a
-            >
-          </div>
         </div>
       </div>
     </footer>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
     ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
     ></script>
-
-        <script>
-            const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    <script>
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
       const mobileLinks = document.querySelectorAll(".mobile-link");
       const header = document.getElementById("main-header");
@@ -411,26 +408,26 @@ const currentImage = image || "/images/og-default.jpg";
         if (isMenuOpen) {
           mobileMenu?.classList.remove("translate-x-full");
           document.body.style.overflow = "hidden";
-                    mobileMenuBtn?.children[0].children[0].classList.add(
+          mobileMenuBtn?.children[0].children[0].classList.add(
             "rotate-45",
-            "translate-y-2",
+            "translate-y-2"
           );
           mobileMenuBtn?.children[0].children[1].classList.add("opacity-0");
           mobileMenuBtn?.children[0].children[2].classList.add(
             "-rotate-45",
-            "-translate-y-2",
+            "-translate-y-2"
           );
         } else {
           mobileMenu?.classList.add("translate-x-full");
           document.body.style.overflow = "";
-                    mobileMenuBtn?.children[0].children[0].classList.remove(
+          mobileMenuBtn?.children[0].children[0].classList.remove(
             "rotate-45",
-            "translate-y-2",
+            "translate-y-2"
           );
           mobileMenuBtn?.children[0].children[1].classList.remove("opacity-0");
           mobileMenuBtn?.children[0].children[2].classList.remove(
             "-rotate-45",
-            "-translate-y-2",
+            "-translate-y-2"
           );
         }
       }
@@ -443,14 +440,14 @@ const currentImage = image || "/images/og-default.jpg";
         });
       });
 
-            window.addEventListener("scroll", () => {
+      window.addEventListener("scroll", () => {
         if (window.scrollY > 20) {
           header?.classList.add(
             "bg-slate-950/80",
             "backdrop-blur-md",
             "border-slate-800/50",
             "shadow-lg",
-            "shadow-blue-900/5",
+            "shadow-blue-900/5"
           );
           header?.classList.remove("border-transparent");
         } else {
@@ -459,7 +456,7 @@ const currentImage = image || "/images/og-default.jpg";
             "backdrop-blur-md",
             "border-slate-800/50",
             "shadow-lg",
-            "shadow-blue-900/5",
+            "shadow-blue-900/5"
           );
           header?.classList.add("border-transparent");
         }
