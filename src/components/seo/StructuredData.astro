@@ -1,0 +1,293 @@
+---
+interface Person {
+  name: string;
+  jobTitle: string;
+  description: string;
+  url: string;
+  email: string;
+  sameAs: string[];
+  knowsAbout: string[];
+  worksFor?: {
+    name: string;
+    url: string;
+  };
+  alumniOf?: string[];
+}
+
+interface Service {
+  name: string;
+  description: string;
+  provider: string;
+  serviceType: string;
+  areaServed: string;
+}
+
+interface Article {
+  headline: string;
+  description: string;
+  author: string;
+  datePublished: string;
+  dateModified: string;
+}
+
+const personData: Person = {
+  name: "Schenier Lopez",
+  jobTitle: "Backend Developer & IA Specialist",
+  description: "Desarrollador Backend especializado en PHP, Node.js e Inteligencia Artificial con 7+ años de experiencia construyendo APIs RESTful escalables y aplicaciones con agentes de IA.",
+  url: "https://schenierlopez.es",
+  email: "contact@schenierlopez.es",
+  sameAs: [
+    "https://github.com/thewasta",
+    "https://www.linkedin.com/in/schenier-lopez/"
+  ],
+  knowsAbout: [
+    "PHP", "Laravel", "Symfony", "Node.js", "NestJS", "Express.js",
+    "API Development", "Inteligencia Artificial", "Prompt Engineering",
+    "Python", "openai-agents", "FastAPI", "Redis", "Next.js",
+    "Clean Architecture", "Domain-Driven Design", "Microservicios",
+    "Docker", "Git", "MySQL", "MongoDB"
+  ],
+  worksFor: {
+    name: "The Cocktail",
+    url: "https://www.the-cocktail.com"
+  }
+};
+
+const services: Service[] = [
+  {
+    name: "Desarrollo de Aplicaciones a Medida",
+    description: "Soluciones empresariales robustas y escalables diseñadas específicamente para tu negocio con enfoque en APIs RESTful y sistemas complejos.",
+    provider: "Schenier Lopez",
+    serviceType: "Software Development",
+    areaServed: "Spain"
+  },
+  {
+    name: "Desarrollo de Aplicaciones IA",
+    description: "Creación de agentes conversacionales, sistemas de automatización inteligente y soluciones con modelos de lenguaje (LLM) utilizando Python y openai-agents.",
+    provider: "Schenier Lopez",
+    serviceType: "AI Development",
+    areaServed: "Spain"
+  },
+  {
+    name: "Consultoría Tecnológica",
+    description: "Asesoramiento estratégico para optimizar infraestructura tecnológica, arquitectura de software y escalabilidad de sistemas.",
+    provider: "Schenier Lopez",
+    serviceType: "Technology Consulting",
+    areaServed: "Spain"
+  },
+  {
+    name: "Desarrollo Frontend",
+    description: "Interfaces de usuario modernas y experiencias digitales inmersivas con animaciones fluidas y arquitectura mantenible.",
+    provider: "Schenier Lopez",
+    serviceType: "Frontend Development",
+    areaServed: "Spain"
+  }
+];
+
+const websiteData: Article = {
+  headline: "Schenier Lopez - Backend Developer & IA Specialist",
+  description: "Portfolio profesional de Schenier Lopez, especialista en desarrollo Backend e Inteligencia Artificial con experiencia en Laravel, Symfony, Python y openai-agents.",
+  author: "Schenier Lopez",
+  datePublished: "2025-11-22T09:00:00+02:00",
+  dateModified: new Date().toISOString()
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://schenierlopez.es#person",
+      name: personData.name,
+      jobTitle: personData.jobTitle,
+      description: personData.description,
+      url: personData.url,
+      email: personData.email,
+      sameAs: personData.sameAs,
+      knowsAbout: personData.knowsAbout,
+      worksFor: {
+        "@type": "Organization",
+        name: personData.worksFor?.name,
+        url: personData.worksFor?.url
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "ES"
+      },
+      languagesSpoken: ["Spanish", "English"]
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://schenierlopez.es#website",
+      name: "Schenier Lopez - Portfolio Profesional",
+      description: websiteData.description,
+      url: "https://schenierlopez.es",
+      inLanguage: "es",
+      isPartOf: {
+        "@type": "WebSite",
+        "@id": "https://schenierlopez.es"
+      },
+      about: {
+        "@type": "Thing",
+        name: "Backend Development & AI Services"
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://schenierlopez.es/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+
+    ...services.map((service, index) => ({
+      "@type": "Service",
+      "@id": `https://schenierlopez.es#service-${index}`,
+      name: service.name,
+      description: service.description,
+      provider: {
+        "@type": "Person",
+        "@id": "https://schenierlopez.es#person",
+        name: service.provider
+      },
+      serviceType: service.serviceType,
+      areaServed: {
+        "@type": "Country",
+        name: service.areaServed
+      },
+      availableChannel: {
+        "@type": "ServiceChannel",
+        name: "Contact",
+        url: "https://schenierlopez.es#contact"
+      }
+    })),
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://schenierlopez.es#breadcrumbs",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Inicio",
+          item: "https://schenierlopez.es"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Sobre Mí",
+          item: "https://schenierlopez.es#about"
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Servicios",
+          item: "https://schenierlopez.es#services"
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: "Contacto",
+          item: "https://schenierlopez.es#contact"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://schenierlopez.es#organization",
+      name: "Schenier Lopez - Desarrollo Backend & IA",
+      description: "Servicios profesionales de desarrollo Backend e Inteligencia Artificial",
+      url: "https://schenierlopez.es",
+      email: "contact@schenierlopez.es",
+      sameAs: [
+        "https://github.com/thewasta",
+        "https://www.linkedin.com/in/schenier-lopez/"
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "ES"
+      },
+      knowsAbout: personData.knowsAbout,
+      serviceType: [
+        "Backend Development",
+        "API Development",
+        "AI Development",
+        "Software Consulting"
+      ]
+    },
+
+    {
+      "@type": "TechArticle",
+      "@id": "https://schenierlopez.es#tech-expertise",
+      headline: "Especialización en APIs RESTful y Desarrollo con Agentes IA",
+      description: "Experiencia avanzada en el desarrollo de sistemas Backend escalables con Laravel, Symfony y aplicaciones de Inteligencia Artificial utilizando Python y openai-agents.",
+      author: {
+        "@type": "Person",
+        "@id": "https://schenierlopez.es#person",
+        name: personData.name
+      },
+      datePublished: websiteData.datePublished,
+      dateModified: websiteData.dateModified,
+      about: [
+        "API RESTful Development",
+        "Intelligent Agent Development",
+        "Clean Architecture",
+        "Domain-Driven Design",
+        "Microservices Architecture"
+      ],
+      programmingLanguage: [
+        "PHP",
+        "JavaScript",
+        "Python",
+        "TypeScript"
+      ]
+    }
+  ]
+}, null, 2)}>
+</script>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://schenierlopez.es#professional-service",
+  name: "Schenier Lopez - Desarrollo Backend & IA",
+  description: "Servicios profesionales de desarrollo de aplicaciones Backend, APIs RESTful y soluciones de Inteligencia Artificial",
+  url: "https://schenierlopez.es",
+  email: "contact@schenierlopez.es",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "ES",
+    addressRegion: "Spain"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    addressCountry: "ES"
+  },
+  openingHours: "Mo-Fr 09:00-18:00",
+  priceRange: "$$",
+  paymentAccepted: ["Bank Transfer", "PayPal"],
+  currenciesAccepted: "EUR",
+  areaServed: {
+    "@type": "Country",
+    name: "Spain"
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios de Desarrollo",
+    itemListElement: services.map((service, index) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.name,
+        description: service.description
+      },
+      availableAtOrFrom: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "ES"
+        }
+      }
+    }))
+  }
+}, null, 2)}></script>
