@@ -216,8 +216,8 @@ const currentUrl = url || siteUrl;
   "description": "Backend Developer specializing in API development with 7+ years of experience",
   "url": "https://schenierlopez.es",
   "sameAs": [
-    "https://github.com/schenierlopez",
-    "https://linkedin.com/in/schenierlopez"
+    "https://github.com/thewasta",
+    "https://www.linkedin.com/in/schenier-lopez/"
   ],
   "knowsAbout": [
     "PHP", "Laravel", "Symfony", "Node.js", "NestJS", "Express.js", "API Development"
