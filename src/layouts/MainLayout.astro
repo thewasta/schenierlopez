@@ -1,4 +1,5 @@
 ---
+import StructuredData from "../components/seo/StructuredData.astro";
 import "../styles/global.css";
 
 export interface Props {
@@ -16,6 +17,7 @@ const currentImage = image || "/images/og-default.jpg";
 <!doctype html>
 <html lang="es">
   <head>
+    <StructuredData />
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
@@ -42,6 +44,45 @@ const currentImage = image || "/images/og-default.jpg";
     <meta name="robots" content="index, follow" />
     <meta name="language" content="Spanish" />
     <meta name="author" content="Schenier Lopez" />
+
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Enhanced Meta Tags aligned with JSON-LD -->
+    <meta name="keywords" content="Backend Developer, IA Specialist, Laravel, Symfony, PHP, Node.js, Inteligencia Artificial, Prompt Engineering, Python, openai-agents, FastAPI, APIs RESTful, Clean Architecture, Desarrollo Web, Schenier Lopez" />
+    <meta name="subject" content="Backend Development & AI Services" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="distribution" content="Global" />
+    <meta name="rating" content="General" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Enhanced Open Graph Meta Tags -->
+    <meta property="og:site_name" content="Schenier Lopez - Portfolio" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="article:author" content="Schenier Lopez" />
+    <meta property="article:section" content="Technology" />
+    <meta property="article:tag" content="Backend Development, AI, Laravel, Symfony, Python" />
+
+    <!-- Enhanced Twitter Meta Tags -->
+    <meta property="twitter:site" content="@thewasta" />
+    <meta property="twitter:creator" content="@thewasta" />
+    <meta property="twitter:domain" content="schenierlopez.es" />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1e293b" />
+    <meta name="msapplication-TileColor" content="#1e293b" />
+    <meta name="application-name" content="Schenier Lopez Portfolio" />
+    <meta name="apple-mobile-web-app-title" content="Schenier Lopez" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <!-- Schema.org validation -->
+    <meta name="google-site-verification" content="google-site-verification-code" />
+
+    <!-- Professional classification -->
+    <meta name="category" content="Software Development, Web Development, AI Services" />
+    <meta name="classification" content="Backend Development & Artificial Intelligence Services" />
+    
   </head>
 
   <body
@@ -93,7 +134,7 @@ const currentImage = image || "/images/og-default.jpg";
             >
             <span
               class="text-xs text-slate-500 font-mono group-hover:text-blue-500/70 transition-colors duration-300"
-              >Backend Developer</span
+              >Backend & AI Developer</span
             >
           </div>
         </a>
@@ -249,8 +290,8 @@ const currentImage = image || "/images/og-default.jpg";
             </div>
             <p class="text-slate-400 leading-relaxed max-w-md">
               Desarrollador Backend especializado en Symfony y Laravel con 6
-              años de experiencia. Construyo APIs RESTful escalables aplicando
-              Clean Architecture y principios SOLID.
+              años de experiencia y formación en Inteligencia Artificial.
+              Construyo APIs RESTful escalables e integraciones con modelos de lenguaje.
             </p>
             <div class="flex items-center space-x-4 pt-2">
               <a
