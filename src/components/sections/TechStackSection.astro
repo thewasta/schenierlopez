@@ -228,7 +228,7 @@ const skills: Skill[][] = [
 
 <section id="tech" class="relative min-h-screen py-20 overflow-hidden bg-slate-900 flex flex-col justify-center">
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900"></div>
+    <div class="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-950 to-slate-900"></div>
     <div class="absolute inset-0 opacity-[0.03]">
       <div class="absolute inset-0" style="background-image: linear-gradient(to right, #3b82f6 1px, transparent 1px), linear-gradient(to bottom, #3b82f6 1px, transparent 1px); background-size: 40px 40px;"></div>
     </div>
@@ -237,7 +237,7 @@ const skills: Skill[][] = [
   <div class="relative z-10 w-full">
     <div class="container mx-auto px-6 text-center mb-16 animate-reveal">
       <h2 class="text-4xl md:text-5xl font-bold font-display mb-6">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400">
+        <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-purple-400 to-emerald-400">
           Stack Tecnológico
         </span>
       </h2>
@@ -249,7 +249,7 @@ const skills: Skill[][] = [
     <div class="space-y-8 md:space-y-12">
       
       {skills.map((row, rowIndex) => (
-        <div class="relative w-full overflow-hidden group/row mask-gradient-horizontal">
+        <div class="select-none relative w-full overflow-hidden group/row mask-gradient-horizontal">
           <div class={`flex w-max space-x-6 animate-scroll-${rowIndex % 2 === 0 ? 'left' : 'right'} group-hover/row:paused`}>
             {[...row, ...row, ...row].map((skill) => (
               <div class="w-[280px] md:w-[320px] shrink-0">
