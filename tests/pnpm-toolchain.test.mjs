@@ -20,3 +20,10 @@ test("Nixpacks installs a pnpm 11-compatible Corepack before dependencies", () =
     /^\[phases\.install\]\r?\ncmds = \[\r?\n\s*"npm install -g corepack@0\.34\.7 && corepack enable",\r?\n\s*"pnpm i --frozen-lockfile",\r?\n\]\r?\n?$/m
   );
 });
+
+test("Nixpacks pins Node 22 to a release supported by pnpm 11", () => {
+  assert.match(
+    nixpacksConfig,
+    /^\[phases\.setup\]\r?\nnixpkgsArchive = ['"]cc368858ca7a000e1b3f014d94df9f0ea3b62391['"]\r?$/m
+  );
+});
