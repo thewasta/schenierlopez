@@ -313,8 +313,17 @@
   }
 }
 
+/* Keep in-page navigation connected to its destination. */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
