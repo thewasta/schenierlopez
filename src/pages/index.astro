@@ -1,63 +1,25 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import HeroSection from "../components/sections/HeroSection.astro";
-import AboutSection from "../components/sections/AboutSection.astro";
-import TechStackSection from "../components/sections/TechStackSection.astro";
-import ServicesSection from "../components/sections/ServicesSection.astro";
-import PortfolioSection from "../components/sections/PortfolioSection.astro";
-import BlogSection from "../components/sections/BlogSection.astro";
-import ContactSection from "../components/sections/ContactSection.astro";
+import ReviewSheetHero from "../components/sections/ReviewSheetHero.astro";
+import ReviewSheetProfile from "../components/sections/ReviewSheetProfile.astro";
+import ReviewSheetTechnologies from "../components/sections/ReviewSheetTechnologies.astro";
+import ReviewSheetServices from "../components/sections/ReviewSheetServices.astro";
+import ReviewSheetContact from "../components/sections/ReviewSheetContact.astro";
 
 export const prerender = true;
 ---
 
 <MainLayout
   title="Schenier Lopez - Backend Developer & IA Specialist"
-  description="Backend Developer & IA Specialist con 6 años de experiencia. APIs RESTful, Laravel, Symfony y soluciones con Inteligencia Artificial y openai-agents."
+  description="Backend Developer & IA Specialist con 7+ años de experiencia. APIs RESTful, Laravel, Symfony y soluciones con Inteligencia Artificial y openai-agents."
 >
-  <HeroSection />
+  <ReviewSheetHero />
 
-  <AboutSection />
+  <ReviewSheetProfile />
 
-  <TechStackSection />
+  <ReviewSheetTechnologies />
 
-  <ServicesSection />
+  <ReviewSheetServices />
 
-  <!--<PortfolioSection /> -->
-
-  <!--<BlogSection />-->
-
-  <ContactSection />
+  <ReviewSheetContact />
 </MainLayout>
-
-<script>
-  import("../scripts/hero-animations.ts").then(
-    ({ default: initHeroAnimations }) => {
-      initHeroAnimations();
-    },
-  );
-
-  import("../scripts/about-animations.ts").then(
-    ({ default: initAboutAnimations }) => {
-      initAboutAnimations();
-    },
-  );
-
-  import("../scripts/tech-stack-animations.ts").then(
-    ({ default: initTechStackAnimations }) => {
-      initTechStackAnimations();
-    },
-  );
-
-  import("../scripts/portfolio-animations.ts").then(
-    ({ default: initPortfolioAnimations }) => {
-      initPortfolioAnimations();
-    },
-  );
-
-  import("../scripts/contact-animations.ts").then(
-    ({ default: initContactAnimations }) => {
-      initContactAnimations();
-    },
-  );
-</script>

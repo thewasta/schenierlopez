@@ -108,73 +108,33 @@
 
   <div class="relative z-10 container mx-auto px-6 text-center">
     <div class="max-w-5xl mx-auto">
-      <div class="mb-8 animate-fade-in">
+      <div class="mb-8">
         <h1
           class="text-6xl md:text-7xl lg:text-8xl font-bold font-display mb-6"
         >
           <div
             class="block text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-blue-500 to-blue-600 mb-4"
           >
-            <span class="typing-text">Backend Developer</span>
+            <span>Backend Developer</span>
           </div>
           <div
             class="block text-transparent bg-clip-text bg-linear-to-r from-emerald-400 via-blue-500 to-purple-500"
           >
-            <span class="typing-text-delay-2">Symfony, Laravel & IA</span>
+            <span>Symfony, Laravel & IA</span>
           </div>
         </h1>
       </div>
 
       <p
-        class="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay"
+        class="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed"
       >
-        Backend Developer especializado en
-        <span class="text-blue-400 font-semibold">APIs RESTful</span> e
-        <span class="text-green-400 font-semibold">Inteligencia Artificial</span>
+        <span class="text-blue-400 font-semibold">7+ años de experiencia</span>
+        en backend con Symfony y Laravel. Desarrollo APIs RESTful y soluciones
+        de <span class="text-green-400 font-semibold">IA aplicada</span> con Python.
       </p>
 
-      <div class="flex flex-wrap justify-center gap-8 mb-16 animate-slide-up">
-        <div
-          class="metric-card bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 text-center hover:border-blue-500/30 transition-all duration-300"
-        >
-          <div class="text-4xl font-bold font-display text-blue-400 mb-2">
-            6+
-          </div>
-          <div class="text-slate-400 font-body">
-            Años de Experiencia Backend
-          </div>
-        </div>
-
-        <div
-          class="metric-card bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 text-center hover:border-emerald-500/30 transition-all duration-300"
-        >
-          <div class="text-4xl font-bold font-display text-emerald-400 mb-2">
-            20+
-          </div>
-          <div class="text-slate-400 font-body">Proyectos Completados</div>
-        </div>
-
-        <div
-          class="metric-card bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 text-center hover:border-green-500/30 transition-all duration-300"
-        >
-          <div class="text-4xl font-bold font-display text-green-400 mb-2">
-            IA
-          </div>
-          <div class="text-slate-400 font-body">Especialización Activa</div>
-        </div>
-
-        <!--<div
-          class="metric-card bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 text-center hover:border-purple-500/30 transition-all duration-300"
-        >
-          <div class="text-4xl font-bold font-display text-purple-400 mb-2">
-            DDD
-          </div>
-          <div class="text-slate-400 font-body">Domain-Driven Design</div>
-        </div> -->
-      </div>
-
       <div
-        class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-delay-2"
+        class="flex flex-col sm:flex-row gap-6 justify-center items-center"
       >
         <a href="#contact" class="btn-primary group relative overflow-hidden">
           <span class="relative z-10 flex items-center justify-center">
@@ -191,7 +151,7 @@
                 d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
               ></path>
             </svg>
-            Contactar para Proyectos
+            Hablar sobre una oportunidad
           </span>
           <div
             class="absolute inset-0 bg-linear-to-r from-blue-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -199,7 +159,7 @@
           </div>
         </a>
 
-        <a href="#portfolio" class="btn-secondary group">
+        <a href="#about" class="btn-secondary group">
           <span class="flex items-center justify-center">
             <svg
               class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform duration-300"
@@ -211,10 +171,10 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                d="M12 5v14m0 0l-7-7m7 7l7-7"
               ></path>
             </svg>
-            Ver Proyectos
+            Ver experiencia
           </span>
         </a>
       </div>
@@ -316,103 +276,10 @@
       animation-delay: 3s;
     }
 
-    /* Typing Animation Classes */
-    .typing-text {
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      animation: typing 3.5s steps(40, end);
-    }
-
-    .typing-text-delay {
-      width: 0;
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      animation: typing 3.5s steps(40, end) 1s both;
-    }
-
-    .typing-text-delay-2 {
-      width: 0;
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      animation: typing 3.5s steps(40, end) 2s both;
-    }
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
-    }
-
-    /* Animation Classes for Staggered Reveals */
-    .animate-fade-in {
-      opacity: 0;
-      animation: fadeInUp 1s ease-out 0.5s forwards;
-    }
-
-    .animate-fade-in-delay {
-      opacity: 0;
-      animation: fadeInUp 1s ease-out 1s forwards;
-    }
-
-    .animate-fade-in-delay-2 {
-      opacity: 0;
-      animation: fadeInUp 1s ease-out 1.5s forwards;
-    }
-
-    .animate-slide-up {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideUp 0.8s ease-out 1.2s forwards;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Metric Cards Hover Effect */
-    .metric-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .metric-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
-    }
-
     /* Responsive Typography */
     @media (max-width: 768px) {
       h1 {
         font-size: clamp(2.5rem, 8vw, 4rem);
-      }
-
-      .typing-text,
-      .typing-text-delay,
-      .typing-text-delay-2 {
-        font-size: clamp(2rem, 7vw, 3rem);
       }
 
       .code-float-element {
@@ -423,26 +290,11 @@
 
     /* Reduced Motion Support */
     @media (prefers-reduced-motion: reduce) {
-      .typing-text,
-      .typing-text-delay,
-      .typing-text-delay-2 {
-        border-right: none;
-        animation: none;
-      }
-
       .code-float-element {
         animation: none;
         opacity: 0.2;
       }
 
-      .animate-fade-in,
-      .animate-fade-in-delay,
-      .animate-fade-in-delay-2,
-      .animate-slide-up {
-        animation: none;
-        opacity: 1;
-        transform: none;
-      }
     }
   </style>
 </section>

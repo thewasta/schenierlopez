@@ -1,0 +1,52 @@
+---
+const services = [
+  {
+    title: "Desarrollo de Aplicaciones a Medida",
+    description: "Soluciones empresariales robustas y escalables diseñadas específicamente para tu negocio. Especialización en sistemas complejos, gestión de roles (RBAC), pasarelas de pago y CMS personalizados.",
+    features: ["Sistemas de Gestión (ERP/CRM)", "Control de Acceso (RBAC)", "Integración de Pagos", "Paneles de Administración"],
+  },
+  {
+    title: "Desarrollo de Aplicaciones IA",
+    description: "Creación de agentes conversacionales y sistemas de automatización inteligente utilizando Python con openai-agents. Desarrollo de soluciones con modelos de lenguaje (LLM) para potenciar tus procesos de negocio.",
+    features: ["Agentes Conversacionales", "Prompt Engineering", "Integración LLM", "Automatización Inteligente"],
+  },
+  {
+    title: "Consultoría Tecnológica",
+    description: "Asesoramiento estratégico para optimizar tu infraestructura tecnológica. Mejora la arquitectura de tu software, implementa mejores prácticas y escala tu negocio con decisiones técnicas sólidas.",
+    features: ["Arquitectura de Software", "Auditoría de Código", "Optimización de Rendimiento", "Estrategia de Escalabilidad"],
+  },
+  {
+    title: "Desarrollo Frontend",
+    description: "Interfaces de usuario modernas, rápidas y accesibles. Creación de experiencias digitales inmersivas con atención al detalle, animaciones fluidas y una arquitectura frontend mantenible.",
+    features: ["UI/UX Avanzado", "Animaciones (GSAP/Framer)", "Single Page Apps (SPA)", "Diseño Responsive"],
+  },
+];
+---
+
+<section id="services" class="review-services" aria-labelledby="services-title">
+  <div class="review-services__inner">
+    <div class="review-services__heading">
+      <h2 id="services-title">Servicios freelance</h2>
+      <p class="review-services__label">Una vía secundaria para colaboraciones concretas</p>
+    </div>
+
+    <div class="review-services__list">
+      {services.map((service) => (
+        <details class="review-service-entry">
+          <summary>
+            <h3>{service.title}</h3>
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+              <path d="M10 3.5v13M3.5 10h13" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+          </summary>
+          <div class="review-service-entry__body">
+            <p>{service.description}</p>
+            <ul>
+              {service.features.map((feature) => <li>{feature}</li>)}
+            </ul>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

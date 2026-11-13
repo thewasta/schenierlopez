@@ -1,0 +1,40 @@
+---
+const skillGroups = [
+  {
+    label: "Backend y APIs",
+    skills: ["Symfony", "Laravel", "NestJS", "Express.js", "PHP"],
+  },
+  {
+    label: "Datos e infraestructura",
+    skills: ["MySQL", "Docker", "Redis", "MongoDB", "Git", "Elasticsearch", "Kibana", "Ansible"],
+  },
+  {
+    label: "Arquitectura y prácticas",
+    skills: ["Microservicios", "Clean Code", "Arquitectura Hexagonal", "Event Driven", "CI/CD", "DDD", "Rundeck"],
+  },
+  {
+    label: "IA aplicada",
+    skills: ["Python", "FastAPI", "OpenAI Agents", "Next.js"],
+  },
+];
+---
+
+<section id="tech" class="review-section review-technologies" aria-labelledby="tech-title">
+  <div class="review-section__heading">
+    <h2 id="tech-title">Stack tecnológico</h2>
+    <span class="review-section__ref">Tecnologías y prácticas</span>
+  </div>
+
+  <dl class="review-tech-list">
+    {skillGroups.map((group) => (
+      <div class="review-tech-row">
+        <dt>{group.label}</dt>
+        <dd>
+          {group.skills.map((skill) => <span class="review-tech-item">{skill}</span>)}
+        </dd>
+      </div>
+    ))}
+  </dl>
+
+  <p class="review-tech-note">Experiencia técnica y principios de ingeniería.</p>
+</section>

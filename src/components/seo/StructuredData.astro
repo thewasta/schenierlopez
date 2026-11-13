@@ -7,10 +7,6 @@ interface Person {
   email: string;
   sameAs: string[];
   knowsAbout: string[];
-  worksFor?: {
-    name: string;
-    url: string;
-  };
   alumniOf?: string[];
 }
 
@@ -46,11 +42,7 @@ const personData: Person = {
     "Python", "openai-agents", "FastAPI", "Redis", "Next.js",
     "Clean Architecture", "Domain-Driven Design", "Microservicios",
     "Docker", "Git", "MySQL", "MongoDB"
-  ],
-  worksFor: {
-    name: "The Cocktail",
-    url: "https://www.the-cocktail.com"
-  }
+  ]
 };
 
 const services: Service[] = [
@@ -106,11 +98,6 @@ const websiteData: Article = {
       email: personData.email,
       sameAs: personData.sameAs,
       knowsAbout: personData.knowsAbout,
-      worksFor: {
-        "@type": "Organization",
-        name: personData.worksFor?.name,
-        url: personData.worksFor?.url
-      },
       address: {
         "@type": "PostalAddress",
         addressCountry: "ES"
