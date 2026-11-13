@@ -4,19 +4,10 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://schenierlopez.es',
   output: 'static',
+  compressHTML: true,
 
   vite: {
-    plugins: [tailwindcss()],
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            vendor: ['gsap'],
-            animations: ['./src/scripts/animations.ts']
-          }
-        }
-      }
-    }
+    plugins: [tailwindcss()]
   },
 
   image: {
