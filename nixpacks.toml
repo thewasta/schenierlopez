@@ -1,0 +1,6 @@
+# Corepack 0.34.7 supports Node 22.11 and fixes pnpm 11's ESM binary mapping.
+[phases.install]
+cmds = [
+  "npm install -g corepack@0.34.7 && corepack enable",
+  "pnpm i --frozen-lockfile",
+]
